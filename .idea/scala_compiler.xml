@@ -9,5 +9,6 @@
         <parameter value="C:\Users\Sudeetha\Documents\GitHub\TestScala\target/.scala_dependencies" />
       </parameters>
     </profile>
+    <profile name="Maven 2" modules="testscala" />
   </component>
 </project>
