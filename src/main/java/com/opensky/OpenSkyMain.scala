@@ -12,9 +12,11 @@ object OpenSkyMain {
     println("scala maven project")
 
 
-    val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("SparkOpenSky").set("spark.driver.host", "localhost")
-
-    conf.set("spark.testing.memory", "2147480000") // increased app memory
+    val conf: SparkConf = new SparkConf()
+      .setMaster("local[*]")
+      .setAppName("SparkOpenSky")
+      .set("spark.driver.host", "localhost")
+      .set("spark.testing.memory", "2147480000") // increased app memory
 
     val spark = SparkSession.builder()
       .config(conf)
@@ -33,9 +35,8 @@ object OpenSkyMain {
     //csvData.explain()
 
 //    csvData.groupBy("YEAR_ID","PRODUCTLINE","STATUS")
-//          .sum("SALES")
+//          .agg(round(sum("SALES"), 2), count("SALES"))
 //          .where(csvData("STATUS") === "Shipped")
-//          .orderBy(desc("YEAR_ID"))
 //          .show()
 
     // Find the average sales amount for each year by product code from DataFrame
@@ -68,7 +69,7 @@ object OpenSkyMain {
     println(fileNames)
     hadoopConfig.rename(new Path("output/" + fileNames), new Path("output/output.csv"))
 
-   // hadoopConfig.delete(new Path("mydata.csv-temp"), true)
+   // hadoopConfig.delete(new Path("output.csv-temp"), true)
    // csvData.show()
     spark.stop()
 

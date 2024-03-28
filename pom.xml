@@ -36,11 +36,7 @@
             <artifactId>spark-sql_2.12</artifactId>
             <version>${spark.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.jcraft</groupId>
-            <artifactId>jsch</artifactId>
-            <version>0.1.54</version>
-        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.google.cloud.tools/jib-maven-plugin -->
 <!--        <dependency>-->
 <!--            <groupId>com.google.cloud.tools</groupId>-->
